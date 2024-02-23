@@ -1,0 +1,25 @@
+
+spring:
+  profiles:
+    active: local # local / dev / prd
+  jpa:
+    database-platform: org.hibernate.dialect.AltibaseDialect
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        format_sql: true
+        cache:
+          use_sql_comments: false
+    generate-ddl: off
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: error
+    web: debug

@@ -1,0 +1,65 @@
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: false
+        show_sql: true
+    generate-ddl: off
+
+server:
+  port: 18443
+  undertow:
+    threads:
+      io: 16 # CPU core * 2
+      worker: 200 # more than CPU core * 10 (Like Tomcat max-threads)
+    accesslog:
+      enabled: true
+      pattern: combined
+      dir: /home/victory/basic8/log/
+      prefix: access_log
+      suffix: .txt
+      max-days: 30
+  ssl:
+    enabled: true # true or false
+    key-store: api.jks
+    key-store-password: 1234
+    key-store-type: JKS
+    key-alias: 1
+
+primary:
+  datasource:
+    driver-class-name: Altibase.jdbc.driver.AltibaseDriver
+    url: jdbc:Altibase://127.0.0.1:20300/mydb
+    username: victory
+    password: victory20300
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+
+item:
+  datasource:
+    driver-class-name: Altibase.jdbc.driver.AltibaseDriver
+    url: jdbc:Altibase://127.0.0.1:20300/mydb
+    username: item
+    password: item20300
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+
+logging:
+  level:
+    org:
+      springframework: info
+      hibernate:
+        engine: info
+        hql: info
+        persister: info
+        loader: info
+        query: info
+    web: info
+    com:
+      zaxxer:
+        hikari: info

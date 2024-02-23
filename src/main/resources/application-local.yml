@@ -1,0 +1,30 @@
+
+spring:
+  config:
+    activate:
+      on-profile: local
+
+server:
+  port: 8080
+  undertow:
+    threads:
+      io: 8 # CPU core * 2
+      worker: 40 # more than CPU core * 10 (Like Tomcat max-threads)
+
+primary:
+  datasource:
+    driver-class-name: Altibase.jdbc.driver.AltibaseDriver
+    url: jdbc:Altibase://127.0.0.1:20300/mydb
+    username: victory
+    password: victory20300
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+
+item:
+  datasource:
+    driver-class-name: Altibase.jdbc.driver.AltibaseDriver
+    url: jdbc:Altibase://127.0.0.1:20300/mydb
+    username: item
+    password: item20300
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
