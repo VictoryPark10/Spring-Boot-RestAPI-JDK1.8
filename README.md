@@ -21,8 +21,9 @@ Spring Boot Restful API Sample
 | Case | Sample |
 | ---- | ---- |
 | Success | **200 OK** (No Body) |
-| Fail | {HTTP Status Code} {ResponPhase}<br/>
+| Fail | {HTTP Status Code} {ResponPhase}
 <pre>
+  
   {
     "message": "Fail Reason",
     "body": {
