@@ -7,12 +7,19 @@ Spring Boot Restful API Sample (2024.02.23)
 ## 1. API Description
 
 | NO | API | Description | SSL | Body Type |
-| ---- | ---- | ---- | ---- |-----------|
-| 1 | **GET** /basic/api/v1/users/{id} | 유저 정보 조회 | O | None      |
+|----| ---- | ---- | ---- |-----------|
+| 1  | **GET** /basic/api/v1/tokne/{id} | 신규 JWT 발급 | O | None |
+| 2  | **GET** /basic/api/v1/users/{id} | 유저 정보 조회 | O | None      |
 
 <hr/>
 
-## 2. 유저 정보 조회 API
+## 2. 신규 JWT 발급 API
+
+| API Interface                    | Parameter | In/Out   | Type   | Description |
+|----------------------------------|-----------|----------|--------|-------------|
+| **GET** /basic/api/v1/token/{id} |           | | | |
+
+## 3. 유저 정보 조회 API
 
 | API Interface | Parameter | In/Out    | Type   | Description |
 | ---- |-----------|-----------|--------|-------------|
