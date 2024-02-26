@@ -29,6 +29,7 @@ dependencies {
 
     compileOnly 'org.projectlombok:lombok'
 
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
     implementation 'org.hibernate:hibernate-core:5.6.15.Final'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation ('org.springframework.boot:spring-boot-starter-web') { exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat' }
