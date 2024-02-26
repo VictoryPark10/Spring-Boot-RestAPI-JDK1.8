@@ -42,3 +42,5 @@ gradlew
 gradlew.bat
 settings.gradle
 gradle/
+gradle-wrapper.jar
+gradle-wrapper.properties

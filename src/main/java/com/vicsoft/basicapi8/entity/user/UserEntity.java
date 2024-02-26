@@ -1,9 +1,6 @@
 package com.vicsoft.basicapi8.entity.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +9,7 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Getter
+@Setter
 @Entity
 @Builder
 @NoArgsConstructor
@@ -25,13 +23,12 @@ public class UserEntity {
     @Column(name = "ID", length = 20, nullable = false)
     private String identifier;
 
-    @Column(length = 20, nullable = false)
+    @Column(length = 64, nullable = false)
     private String password;
 
     @Column(length = 20, nullable = false)
     private String name;
 
-    @Column(nullable = false)
     private int age;
 
     @Column(name = "REGIST_DATE", length = 20, nullable = false)
