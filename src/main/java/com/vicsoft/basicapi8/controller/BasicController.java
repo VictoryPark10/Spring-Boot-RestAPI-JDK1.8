@@ -103,11 +103,11 @@ public class BasicController {
                 return deleteUser(id);
             }
             default: {
-                log.error("Http Request Method is not 'GET'");
+                log.error("Http Request Method is not 'GET' / 'POST' / 'PUT' / 'DELETE'");
 
                 return ResponseEntity
                         .status(HttpStatus.METHOD_NOT_ALLOWED)
-                        .body(ResponseUtil.getErrorBody(HttpStatus.METHOD_NOT_ALLOWED, httpServletRequest.getServletPath() + " Request's HTTP Method support only 'GET' Method", httpServletRequest.getServletPath()));
+                        .body(ResponseUtil.getErrorBody(HttpStatus.METHOD_NOT_ALLOWED, httpServletRequest.getServletPath() + " Request's HTTP Method support only 'GET' / 'POST' / 'PUT' / 'DELETE' Method", httpServletRequest.getServletPath()));
             }
         }
     }
