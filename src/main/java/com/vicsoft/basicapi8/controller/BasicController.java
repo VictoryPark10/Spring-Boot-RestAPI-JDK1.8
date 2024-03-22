@@ -29,7 +29,7 @@ public class BasicController {
         try {
             return newToken(httpServletRequest, request, id);
         } catch (Exception e) {
-            log.warn("Exception occurred while Provide new JWT: {}", e.getMessage(), e);
+            log.warn("Exception occurred while Providing new JWT: {}", e.getMessage(), e);
             return ResponseEntity.internalServerError().body(ResponseUtil.getErrorBody(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage() ,httpServletRequest.getServletPath()));
         }
     }
@@ -100,7 +100,7 @@ public class BasicController {
                 return updateUser(httpServletRequest, id, request.getBody());
             }
             case DELETE: {
-                return deleteUser(id);
+                return deleteUser(httpServletRequest, id);
             }
             default: {
                 log.error("Http Request Method is not 'GET' / 'POST' / 'PUT' / 'DELETE'");
@@ -126,8 +126,8 @@ public class BasicController {
         return ResponseEntity.ok().build();
     }
 
-    private ResponseEntity<Map<String, Object>> deleteUser(String id) throws Exception {
-        userService.deleteUser(id);
+    private ResponseEntity<Map<String, Object>> deleteUser(HttpServletRequest httpServletRequest, String id) throws Exception {
+        userService.deleteUser(httpServletRequest, id);
         return ResponseEntity.ok().build();
     }
 

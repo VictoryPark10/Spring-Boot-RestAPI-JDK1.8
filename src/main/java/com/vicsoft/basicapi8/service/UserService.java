@@ -81,7 +81,12 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void deleteUser(String id) {
+    public void deleteUser(HttpServletRequest httpServletRequest, String id) throws UserNotFoundException {
+        Optional<UserEntity> isExistUser = userRepository.findByIdentifier(id);
+        if (!isExistUser.isPresent()) {
+            throw new UserNotFoundException(HttpStatus.NOT_FOUND, "[" + id + "] User Not Found", httpServletRequest.getServletPath());
+        }
+
         userRepository.deleteByIdentifier(id);
     }
 
